@@ -1,7 +1,7 @@
 <template>
   <section
     id="home"
-    class="min-h-screen flex items-center justify-center relative overflow-hidden bg-dmcBackground"
+    class="min-h-screen flex items-center justify-center relative overflow-hidden bg-porsche-black"
   >
     <!-- Background -->
     <div class="absolute inset-0 z-0">
@@ -33,8 +33,6 @@ defineProps({
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-
 h1,
 p {
   font-family: 'Audiowide', sans-serif;
@@ -83,10 +81,6 @@ p {
 
 .animate-zoom-in-slow {
   animation: zoom-in-slow 3s ease-in-out infinite alternate;
-}
-
-#home {
-  background-color: #1a1a1a;
 }
 
 h1 {

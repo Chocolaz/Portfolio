@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* src/assets/global.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.neon-effect {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.neon-effect:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 40px gold;
+}
+
+.bg-porsche-black {
+  background-color: #191919;
+}
+
+.bg-porsche-red {
+  background-color: #d5001c;
+}
+
+.text-porsche-silver {
+  color: #e5e5e5;
+}
+
+.bg-porsche-darkgray {
+  background-color: #2a2a2a;
+}
+
+.custom-gradient {
+  background: linear-gradient(to bottom right, #1a1a1a, #333333);
+}
+
+.custom-gradient-reverse {
+  background: linear-gradient(to bottom right, #333333 #1a1a1a);
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main custom-gradient">
     <div class="text-container">
       <div class="text">WELCOME WELCOME WELCOME</div>
       <div class="text">WELCOME WELCOME WELCOME</div>
@@ -41,7 +41,6 @@ html,
 }
 
 .main {
-  background-color: #1e1f21;
   overflow: hidden;
   position: relative;
 }

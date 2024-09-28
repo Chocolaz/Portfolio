@@ -49,22 +49,27 @@ import { ref } from 'vue'
 import Navbar from './components/Navbar.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import HomeSection from './pageComponents/HomeSection.vue'
-import AboutSection from './pageComponents/AboutSection.vue' // Import the new AboutSection
+import AboutSection from './pageComponents/AboutSection.vue'
 
 const portfolio = ref({
   fname: 'Sirakran',
   lname: 'K.',
   title: 'UI/UX Enthusiast & FrontEnd Developer',
-  about:
-    "I'm a passionate developer with 5 years of experience crafting elegant, user-centric web applications. My approach combines clean code with intuitive design, always striving to create seamless digital experiences.",
   skills: [
+    'UX/UI design',
+    'Figma',
+    'HTML',
+    'CSS',
+    'JavaScript',
     'Vue.js',
     'React',
-    'Node.js',
-    'Python',
-    'UI/UX Design',
-    'GraphQL',
-    'AWS'
+    'Java',
+    'Spring Boot',
+    'MySQL',
+    'MongoDB',
+    'Nginx',
+    'Docker',
+    'Git'
   ],
   projects: [
     {

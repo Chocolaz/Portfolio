@@ -1,40 +1,81 @@
 <template>
   <section
+    class="min-h-screen bg-gradient-to-r flex items-center justify-center py-20 custom-gradient relative overflow-hidden"
     id="about"
-    class="min-h-screen flex items-center justify-center py-20 bg-porsche-black"
   >
-    <div class="max-w-4xl mx-auto px-6 relative">
+    <!-- Background pattern with subtle opacity for futuristic vibe -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
       <div
-        class="absolute top-0 left-0 w-20 h-1 bg-porsche-red transform -translate-x-10"
-      ></div>
-      <h2
-        class="text-5xl font-bold mb-12 text-left animate-fade-in text-porsche-silver"
-      >
-        About Me
-      </h2>
-      <p
-        class="text-porsche-silver leading-relaxed mb-10 animate-fade-in text-lg"
-      >
-        {{ portfolio.about }}
-      </p>
-      <div class="flex flex-wrap justify-start gap-4 mb-10">
-        <span
-          v-for="skill in portfolio.skills"
-          :key="skill"
-          class="bg-porsche-darkgray text-porsche-silver px-6 py-3 rounded-full text-sm font-medium shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-porsche-red hover:text-white futuristic-button neon-effect"
-        >
-          {{ skill }}
-        </span>
-      </div>
-      <div
-        class="w-full h-1 bg-gradient-to-r from-porsche-red via-porsche-silver to-porsche-black"
+        class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NDQ0NDQiIHN0cm9rZS13aWR0aD0iMSIgLz4KPC9zdmc+')] bg-repeat"
       ></div>
     </div>
+
+    <!-- Main content container -->
+    <div
+      class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10"
+    >
+      <!-- About Me Text Section -->
+      <div
+        class="max-w-4xl lg:w-1/2 relative"
+        :class="{ 'animate-fade-in': isVisible }"
+      >
+        <h2
+          class="text-5xl font-bold mb-6 text-left text-porsche-silver font-audiowide neon-title"
+        >
+          About Me
+        </h2>
+        <p class="leading-relaxed mb-6 text-lg text-porsche-silver">
+          I'm a dedicated frontend developer and UX/UI designer, focused on
+          creating meaningful digital experiences. With a strong background in
+          project management, business analysis, and research, I'm skilled at
+          understanding user needs and translating them into intuitive,
+          responsive web applications.
+          <span class="block mt-1"
+            >Ready to collaborate? Let's work together to build digital
+            solutions that make a real impact.</span
+          >
+        </p>
+
+        <!-- Skill Tags -->
+        <div class="flex flex-wrap justify-start gap-4 mb-6">
+          <span
+            v-for="(skill, index) in portfolio.skills"
+            :key="skill"
+            class="bg-porsche-darkgray text-porsche-silver px-6 py-3 rounded-full text-sm font-medium shadow-lg transform transition-all duration-300 futuristic-button neon-effect"
+            :style="{ animationDelay: `${index * 100}ms` }"
+          >
+            {{ skill }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Profile Image Section -->
+      <div
+        class="mt-10 lg:mt-0 lg:w-1/2 flex justify-center relative"
+        :class="{ 'animate-fade-in': isVisible }"
+      >
+        <div class="relative group">
+          <img
+            src="../assets/greeting.png"
+            alt="My Picture"
+            class="rounded-full w-64 h-64 object-cover border-4 border-porsche-silver shadow-lg transform transition-all duration-500 group-hover:scale-105 neon-image"
+          />
+          <div
+            class="absolute inset-0 rounded-full border-2 border-porsche-red opacity-0 group-hover:opacity-100 transition duration-500 pulse-border"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gradient Footer Line -->
+    <div
+      class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-porsche-red via-porsche-silver to-porsche-black"
+    ></div>
   </section>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
   portfolio: {
@@ -42,28 +83,23 @@ const props = defineProps({
     required: true
   }
 })
+
+const isVisible = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = true
+  }, 500)
+})
 </script>
 
 <style scoped>
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-/* Define your colors directly */
-.bg-porsche-black {
-  background-color: #191919;
+.font-audiowide {
+  font-family: 'Audiowide', sans-serif;
 }
 
-.bg-porsche-red {
-  background-color: #d5001c;
-}
-
-.text-porsche-silver {
-  color: #e5e5e5;
-}
-
-.bg-porsche-darkgray {
-  background-color: #2a2a2a;
+.neon-title {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes fade-in {
@@ -84,6 +120,7 @@ const props = defineProps({
 .futuristic-button {
   position: relative;
   overflow: hidden;
+  border: 1px solid #aaa;
 }
 
 .futuristic-button::before {
@@ -98,7 +135,7 @@ const props = defineProps({
     rgba(255, 255, 255, 0.3) 0%,
     rgba(255, 255, 255, 0) 70%
   );
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-75%) rotate(45deg);
   transition: all 0.3s ease;
   opacity: 0;
 }
@@ -106,6 +143,27 @@ const props = defineProps({
 .futuristic-button:hover::before {
   opacity: 1;
   transform: translateY(0) rotate(45deg);
+}
+
+.pulse-border {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
 }
 
 @keyframes gradient-shift {
@@ -120,22 +178,8 @@ const props = defineProps({
   }
 }
 
-.bg-gradient-to-r {
-  background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
-}
-
-/* Neon text styling */
-.neon-effect {
-  color: #fff;
-  text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6),
-    0 0 15px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.neon-effect:hover {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4),
-    0 0 40px gold;
+.group:hover img {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+  transform: scale(1.1);
 }
 </style>
