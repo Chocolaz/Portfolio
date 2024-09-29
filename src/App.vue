@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-900 text-white font-sans">
+  <div
+    class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white font-sans"
+  >
     <Navbar />
 
     <main>
@@ -8,11 +10,11 @@
 
       <!-- Projects section -->
       <section id="projects" class="min-h-screen py-20">
-        <div class="max-w-4xl mx-auto px-6">
-          <h2 class="text-3xl font-bold mb-12 text-center text-neon-pink">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl font-bold mb-12 text-center text-porsche-red">
             Projects
           </h2>
-          <div class="grid gap-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <ProjectCard
               v-for="project in portfolio.projects"
               :key="project.id"
@@ -22,17 +24,7 @@
         </div>
       </section>
 
-      <!-- Contact section -->
-      <section
-        id="contact"
-        class="min-h-screen flex items-center justify-center py-20"
-      >
-        <div class="max-w-md mx-auto px-6">
-          <h2 class="text-3xl font-bold mb-8 text-center text-neon-pink">
-            Contact Me
-          </h2>
-        </div>
-      </section>
+      <ContactSection />
     </main>
 
     <footer class="bg-gray-800 py-6 text-center text-gray-400">
@@ -50,6 +42,7 @@ import Navbar from './components/Navbar.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import HomeSection from './pageComponents/HomeSection.vue'
 import AboutSection from './pageComponents/AboutSection.vue'
+import ContactSection from './pageComponents/ContactSection.vue'
 
 const portfolio = ref({
   fname: 'Sirakran',
@@ -95,6 +88,30 @@ const portfolio = ref({
         'Real-time collaborative coding environment for remote pair programming and code reviews.',
       technologies: ['Vue.js', 'Socket.io', 'Express'],
       image: '/api/placeholder/400/300'
+    },
+    {
+      id: 4,
+      title: 'KANBAN',
+      description:
+        'Real-time collaborative coding environment for remote pair programming and code reviews.',
+      technologies: ['Vue.js', 'Socket.io', 'Express'],
+      image: '/api/placeholder/400/300'
+    },
+    {
+      id: 3,
+      title: 'KANBAN',
+      description:
+        'Real-time collaborative coding environment for remote pair programming and code reviews.',
+      technologies: ['Vue.js', 'Socket.io', 'Express'],
+      image: '/api/placeholder/400/300'
+    },
+    {
+      id: 3,
+      title: 'KANBAN',
+      description:
+        'Real-time collaborative coding environment for remote pair programming and code reviews.',
+      technologies: ['Vue.js', 'Socket.io', 'Express'],
+      image: '/api/placeholder/400/300'
     }
   ]
 })
@@ -107,5 +124,23 @@ const portfolio = ref({
 
 html {
   scroll-behavior: smooth;
+}
+
+.text-porsche-red {
+  color: #d5001c;
+}
+
+.bg-porsche-red {
+  background-color: #d5001c;
+}
+
+.from-gray-900 {
+  --tw-gradient-from: #111827;
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, rgb(17 24 39 / 0));
+}
+
+.to-black {
+  --tw-gradient-to: #000000;
 }
 </style>
