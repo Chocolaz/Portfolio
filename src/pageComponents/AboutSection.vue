@@ -3,24 +3,24 @@
     class="min-h-screen bg-gradient-to-r flex items-center justify-center py-20 custom-gradient relative overflow-hidden"
     id="about"
   >
-    <!-- Background pattern with subtle opacity for futuristic vibe -->
+    <!-- Background pattern  -->
     <div class="absolute inset-0 opacity-10 pointer-events-none">
       <div
         class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiM0NDQ0NDQiIHN0cm9rZS13aWR0aD0iMSIgLz4KPC9zdmc+')] bg-repeat"
       ></div>
     </div>
 
-    <!-- Main content container -->
+    <!-- Main content -->
     <div
       class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10"
     >
-      <!-- About Me Text Section -->
+      <!-- About Me -->
       <div
         class="max-w-4xl lg:w-1/2 relative"
         :class="{ 'animate-fade-in': isVisible }"
       >
         <h2
-          class="text-5xl font-bold mb-6 text-left text-porsche-silver font-audiowide neon-title"
+          class="text-5xl font-bold mb-6 text-left text-porsche-silver font-audiowide neon-effect"
         >
           About Me
         </h2>
@@ -36,7 +36,7 @@
           >
         </p>
 
-        <!-- Skill Tags -->
+        <!-- Skill -->
         <div class="flex flex-wrap justify-start gap-4 mb-6">
           <span
             v-for="(skill, index) in portfolio.skills"
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <!-- Profile Image Section -->
+      <!-- Profile Image -->
       <div
         class="mt-10 lg:mt-0 lg:w-1/2 flex justify-center relative"
         :class="{ 'animate-fade-in': isVisible }"
@@ -66,11 +66,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Gradient Footer Line -->
-    <div
-      class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-porsche-red via-porsche-silver to-porsche-black"
-    ></div>
   </section>
 </template>
 
@@ -98,8 +93,12 @@ onMounted(() => {
   font-family: 'Audiowide', sans-serif;
 }
 
-.neon-title {
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+.neon-effect {
+  transition: all 0.3s ease;
+}
+.neon-effect:hover {
+  text-shadow: 0 0 10px rgba(213, 0, 28, 0.8), 0 0 20px rgba(213, 0, 28, 0.6),
+    0 0 30px rgba(213, 0, 28, 0.4), 0 0 40px rgba(213, 0, 28, 0.2);
 }
 
 @keyframes fade-in {
@@ -115,6 +114,39 @@ onMounted(() => {
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
+}
+
+.pulse-border {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.group:hover img {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+  transform: scale(1.1);
 }
 
 .futuristic-button {
@@ -143,43 +175,5 @@ onMounted(() => {
 .futuristic-button:hover::before {
   opacity: 1;
   transform: translateY(0) rotate(45deg);
-}
-
-.pulse-border {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-}
-
-.bg-gradient-to-r {
-  background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.group:hover img {
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
-  transform: scale(1.1);
 }
 </style>

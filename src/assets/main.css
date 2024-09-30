@@ -38,5 +38,36 @@
 }
 
 .custom-gradient-reverse {
-  background: linear-gradient(to bottom right, #333333 #1a1a1a);
+  background: linear-gradient(to bottom right, #333333, #1a1a1a);
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(130deg, #1a1a1a, #333333, #59000c);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-porsche-black {
+  background-color: #191919;
+}
+.bg-porsche-red {
+  background-color: #d5001c;
+}
+.text-porsche-silver {
+  color: #e5e5e5;
+}
+.bg-porsche-darkgray {
+  background-color: #2a2a2a;
 }
