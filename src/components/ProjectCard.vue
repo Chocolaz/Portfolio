@@ -1,4 +1,3 @@
-<!-- components/ProjectCard.vue -->
 <template>
   <div
     class="relative bg-gradient-to-br from-[#333333] to-[#1a1a1a] rounded-lg overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 group"

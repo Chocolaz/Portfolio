@@ -13,10 +13,10 @@
       <ContactSection />
     </main>
 
-    <footer class="bg-gray-800 py-6 text-center text-gray-400">
+    <footer class="bg-gradient-animated py-6 text-center text-gray-400">
       <p>
-        &copy; {{ new Date().getFullYear() }} {{ portfolio.name }}. All rights
-        reserved.
+        &copy; {{ new Date().getFullYear() }}
+        {{ portfolio.fname + portfolio.lname }} All rights reserved.
       </p>
     </footer>
   </div>
@@ -55,7 +55,7 @@ const portfolio = ref({
       id: 1,
       title: 'KANBAN Task Board',
       description:
-        ' Task management platform with dynamic components for task creation, deletion, status changes, and board transfers. Secure API requests using token-based authentication. Responsive design for a seamless user experience.',
+        ' Task management platform with dynamic components for task and status CRUD, and board transfers. Secure API requests and multi user using token-based authentication. Responsive design for a seamless user experience.',
       technologies: [
         'Vue.js',
         'HTML',
@@ -67,7 +67,8 @@ const portfolio = ref({
         'Spring Boot',
         'Docker'
       ],
-      image: '/api/placeholder/400/300'
+      image:
+        'https://media.discordapp.net/attachments/1021065006953013339/1290448206974423050/image.png?ex=66fc7f0b&is=66fb2d8b&hm=bb6a6db0c18dcc4cecdc1b46d85c9b2e51eacdc9253d657c4a863db6c72b10ea&=&format=webp&quality=lossless&width=592&height=655'
     },
     {
       id: 2,
@@ -112,7 +113,7 @@ const portfolio = ref({
         'CRUD web app for building custom computer specifications. Dynamic data fetching, responsive UI, and admin tools for product management, PC rankings, and article browsing.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
       image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1290186098751836200/image.png?ex=66fb8af0&is=66fa3970&hm=f1b70ae7973d2f6a85783b19a03a9b7a56f9794c3a73a286fdf44c7c64748ea2&'
+        'https://media.discordapp.net/attachments/1021065006953013339/1290240187259162634/image.png?ex=66fbbd50&is=66fa6bd0&hm=ea5c6b442fb2ad966d55943cfeafe285bcd0d93adb08f3adf127b0d0cfb0893a&=&format=webp&quality=lossless&width=745&height=655'
     },
     {
       id: 3,
