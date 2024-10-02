@@ -7,11 +7,40 @@
       <div class="text-silver font-bold text-2xl tracking-wider uppercase">
         Sirakran<span class="text-dmc-primary">K.</span>
       </div>
-      <ul class="flex space-x-8">
-        <li v-for="section in sections" :key="section">
+
+      <!-- Hamburger Icon for Mobile -->
+      <button
+        class="md:hidden block text-silver focus:outline-none"
+        @click="toggleMenu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul
+        :class="[
+          'md:flex md:space-x-8 md:items-center',
+          menuOpen ? 'block' : 'hidden'
+        ]"
+        class="absolute md:relative bg-porsche-black opacity-90 top-full left-0 w-full md:w-auto md:bg-transparent transition-all"
+      >
+        <li v-for="section in sections" :key="section" class="md:inline-block">
           <a
             :href="`#${section.toLowerCase()}`"
-            class="text-base text-silver font-medium tracking-wider transition-all duration-300 relative group"
+            class="block text-base text-silver font-medium tracking-wider transition-all duration-300 relative group px-4 py-2 md:py-0"
           >
             <span class="group-hover:text-dmc-primary neon-effect">{{
               section
@@ -30,6 +59,12 @@
 import { ref } from 'vue'
 
 const sections = ref(['Home', 'About', 'Projects', 'Contact'])
+
+const menuOpen = ref(false)
+
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
 </script>
 
 <style scoped>
@@ -85,6 +120,20 @@ nav {
 @media (min-width: 768px) {
   nav {
     padding: 1rem 2rem;
+  }
+}
+
+ul.hidden {
+  display: none;
+}
+
+ul.block {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  ul {
+    display: flex !important;
   }
 }
 </style>

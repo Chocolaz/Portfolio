@@ -1,150 +1,291 @@
 <template>
-  <div class="main custom-gradient">
-    <div class="text-container">
-      <div class="text">WELCOME WELCOME WELCOME</div>
-      <div class="text">WELCOME WELCOME WELCOME</div>
-    </div>
-    <div class="text-container hello1">
-      <div class="text">HELLO HELLO HELLO</div>
-      <div class="text">HELLO HELLO HELLO</div>
-    </div>
-    <div class="text-container hello2">
-      <div class="text">HELLO HELLO HELLO</div>
-      <div class="text">HELLO HELLO HELLO</div>
-    </div>
-    <div class="text-container hello3">
-      <div class="text"><span> </span>HELLO HELLO HELLO</div>
-      <div class="text"><span> </span>HELLO HELLO HELLO</div>
-    </div>
-    <div class="text-container hello4">
-      <div class="text">WELCOME WELCOME WELCOME</div>
-      <div class="text">WELCOME WELCOME WELCOME</div>
+  <div class="gradient-bg">
+    <svg
+      viewBox="0 0 100vw 100vw"
+      xmlns="http://www.w3.org/2000/svg"
+      class="noiseBg"
+    >
+      <filter id="noiseFilterBg">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.6"
+          stitchTiles="stitch"
+        />
+      </filter>
+
+      <rect
+        width="100%"
+        height="100%"
+        preserveAspectRatio="xMidYMid meet"
+        filter="url(#noiseFilterBg)"
+      />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+            result="goo"
+          />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="gradients-container">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+      <div class="interactive"></div>
     </div>
   </div>
 </template>
 
-<script></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const interBubble = document.querySelector('.interactive')
+  let curX = 0
+  let curY = 0
+  let tgX = 0
+  let tgY = 0
 
-.main {
-  font-family: 'Audiowide', sans-serif;
+  const move = () => {
+    curX += (tgX - curX) / 20
+    curY += (tgY - curY) / 20
+    interBubble.style.transform = `translate(${Math.round(
+      curX
+    )}px, ${Math.round(curY)}px)`
+    requestAnimationFrame(move)
+  }
+
+  window.addEventListener('mousemove', (event) => {
+    tgX = event.clientX
+    tgY = event.clientY
+  })
+
+  move()
+})
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+:root {
+  --color-bg1: rgb(12, 12, 12);
+  --color-bg2: rgb(30, 30, 30); 
+  --color1: 204, 0, 0; 
+  --color2: 192, 192, 192; 
+  --color3: 128, 128, 128; 
+  --color4: 50, 50, 50; 
+  --color5: 32, 32, 32; 
+  --color-interactive: 204, 0, 0; 
+  --circle-size: 80%; 
+  --blending: hard-light; 
 }
 
-body,
-html,
-.main {
+* {
   margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #fff;
+  background: transparent;
+  border: none;
+}
+
+html,
+body {
+  font-family: 'Dongle', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+.gradient-bg {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  top: 0;
+  left: 0;
+}
+.gradient-bg .svgBlur {
+  display: none;
+}
+.gradient-bg .noiseBg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+}
+.gradient-bg .gradients-container {
+  filter: url(#goo) blur(40px);
   width: 100%;
   height: 100%;
 }
-
-.main {
-  overflow: hidden;
-  position: relative;
-}
-.text-container {
-  left: 7%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+.gradient-bg .g1 {
   position: absolute;
-  display: inline-flex;
-  transform: rotate(-90deg);
-  transform-origin: bottom left;
-  bottom: 0;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 0.8) 0,
+      rgba(var(--color1), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+  opacity: 1;
 }
-
-.hello1 .text,
-.hello2 .text,
-.hello3 .text {
-  font-size: 200px;
+.gradient-bg .g2 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 0.8) 0,
+      rgba(var(--color2), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
 }
-.hello1 {
-  left: 35%;
+.gradient-bg .g3 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 0.8) 0,
+      rgba(var(--color3), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: 1;
 }
-.hello1 .text {
-  animation: movedown 30s linear infinite;
-  animation-delay: -30s;
+.gradient-bg .g4 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 0.8) 0,
+      rgba(var(--color4), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 0.7;
 }
-.hello1 .text:nth-child(2) {
-  animation: movedown2 30s linear infinite;
-  animation-delay: -15s;
+.gradient-bg .g5 {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 0.8) 0,
+      rgba(var(--color5), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: 1;
 }
-
-.hello2 {
-  left: 60%;
-}
-.hello2 .text {
-  animation: move 50s linear infinite;
-  animation-delay: -50s;
-}
-.hello2 .text:nth-child(2) {
-  animation: move2 50s linear infinite;
-  animation-delay: -25s;
-}
-
-.hello3 {
-  left: 87%;
-}
-.hello3 .text {
-  animation: movedown 30s linear infinite;
-  animation-delay: -30s;
-}
-.hello3 .text:nth-child(2) {
-  animation: movedown2 30s linear infinite;
-  animation-delay: -15s;
-}
-.hello4 {
-  left: 100%;
-}
-
-.text {
-  white-space: nowrap;
-  font-size: 100px;
-  color: white;
-  white-space: nowrap;
-  animation: move 30s linear infinite;
-  animation-delay: -30s;
-  padding: 0 40px;
-}
-.text:nth-child(2) {
-  animation: move2 30s linear infinite;
-  animation-delay: -15s;
-}
-
-@keyframes move {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes move2 {
-  0% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes movedown {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes movedown2 {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-200%);
-  }
+.gradient-bg .interactive {
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-interactive), 0.8) 0,
+      rgba(var(--color-interactive), 0) 50%
+    )
+    no-repeat;
+  mix-blend-mode: var(--blending);
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
 }
 </style>
