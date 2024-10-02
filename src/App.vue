@@ -68,7 +68,8 @@ const portfolio = ref({
         'Docker'
       ],
       image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290448206974423050/image.png?ex=66fc7f0b&is=66fb2d8b&hm=bb6a6db0c18dcc4cecdc1b46d85c9b2e51eacdc9253d657c4a863db6c72b10ea&=&format=webp&quality=lossless&width=592&height=655'
+        'https://media.discordapp.net/attachments/1021065006953013339/1290448206974423050/image.png?ex=66fc7f0b&is=66fb2d8b&hm=bb6a6db0c18dcc4cecdc1b46d85c9b2e51eacdc9253d657c4a863db6c72b10ea&=&format=webp&quality=lossless&width=592&height=655',
+      link: 'https://github.com/Chocolaz/INT221-KW-3-KANBAN'
     },
     {
       id: 2,
@@ -81,7 +82,8 @@ const portfolio = ref({
         'User Journey',
         'User-Centered Design'
       ],
-      image: '/api/placeholder/400/300'
+      image: '/api/placeholder/400/300',
+      link: '/pdf/fitcheck.pdf'
     },
     {
       id: 3,
@@ -95,7 +97,8 @@ const portfolio = ref({
         'Business Analyst'
       ],
       image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1290184487128272948/image.png?ex=66fb8970&is=66fa37f0&hm=64ae508b12ee197b6e8bd53b7fb2c6d4e0262ef28cf7c537056cb0c1928f7429&'
+        'https://cdn.discordapp.com/attachments/1021065006953013339/1290184487128272948/image.png?ex=66fb8970&is=66fa37f0&hm=64ae508b12ee197b6e8bd53b7fb2c6d4e0262ef28cf7c537056cb0c1928f7429&',
+      link: '/pdf/waste2wheel.pdf'
     },
     {
       id: 4,
@@ -104,25 +107,28 @@ const portfolio = ref({
         'An interactive web application blending the traditional sounds of the classic piano with modern electronic piano features, focusing on sound handling in frontend development.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
       image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290185452007063552/image.png?ex=66fb8a56&is=66fa38d6&hm=b1b0411574d503bba25678d757fc81bedd1afaf937d9f7a8a0d1f66034d56a8e&=&format=webp&quality=lossless&width=714&height=525'
+        'https://media.discordapp.net/attachments/1021065006953013339/1290185452007063552/image.png?ex=66fb8a56&is=66fa38d6&hm=b1b0411574d503bba25678d757fc81bedd1afaf937d9f7a8a0d1f66034d56a8e&=&format=webp&quality=lossless&width=714&height=525',
+      link: 'https://github.com/fluffyhugger/PROJECT1-SEC-2-DaiItsara'
     },
     {
-      id: 3,
+      id: 5,
       title: 'PC Spec Builder CRUD',
       description:
         'CRUD web app for building custom computer specifications. Dynamic data fetching, responsive UI, and admin tools for product management, PC rankings, and article browsing.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
       image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290240187259162634/image.png?ex=66fbbd50&is=66fa6bd0&hm=ea5c6b442fb2ad966d55943cfeafe285bcd0d93adb08f3adf127b0d0cfb0893a&=&format=webp&quality=lossless&width=745&height=655'
+        'https://media.discordapp.net/attachments/1021065006953013339/1290240187259162634/image.png?ex=66fbbd50&is=66fa6bd0&hm=ea5c6b442fb2ad966d55943cfeafe285bcd0d93adb08f3adf127b0d0cfb0893a&=&format=webp&quality=lossless&width=745&height=655',
+      link: 'https://github.com/fluffyhugger/PROJECT2-SEC-2-DaiItsara'
     },
     {
-      id: 3,
+      id: 6,
       title: 'Punktify MP3 Player',
       description:
         'MP3 Player web app with responsive design. This app provides a user-friendly interface for playing MP3 files and enjoying music seamlessly across various devices.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
       image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1290183474400985130/image.png?ex=66fb887e&is=66fa36fe&hm=49836efff2d7aee3dca5e8aca7b82e9b7dfb1899bf0d1d414a9e09f6381796a8&'
+        'https://cdn.discordapp.com/attachments/1021065006953013339/1290183474400985130/image.png?ex=66fb887e&is=66fa36fe&hm=49836efff2d7aee3dca5e8aca7b82e9b7dfb1899bf0d1d414a9e09f6381796a8&',
+      link: 'https://github.com/Chocolaz/Punktify'
     }
   ]
 })

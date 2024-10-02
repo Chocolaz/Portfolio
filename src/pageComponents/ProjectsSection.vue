@@ -45,7 +45,6 @@ const props = defineProps({
 </script>
 
 <style scoped>
-/* Neon effect for headings */
 .neon-effect {
   transition: all 0.3s ease;
 }
@@ -66,7 +65,6 @@ const props = defineProps({
   }
 }
 
-/* Infinite animated gradient border */
 .gradient-border {
   background: linear-gradient(
     to right,
