@@ -73,17 +73,18 @@ const portfolio = ref({
     },
     {
       id: 2,
-      title: 'Fitcheck',
+      title: 'Manga Heaven',
       description:
-        'A comprehensive health app that helps you track workouts, nutrition, and set personalized goals with interactive features and personalized support to keep you motivated and achieve your fitness objectives.',
+        'Manga Heaven is a vibrant online platform designed to bring togethermanga enthusiasts from around the world. Discover a vast collection ofmanga from talented writers and artists, all in one convenient place.',
       technologies: [
         'Figma',
         'Design Thinking',
         'User Journey',
         'User-Centered Design'
       ],
-      image: '/api/placeholder/400/300',
-      link: '/pdf/fitcheck.pdf'
+      image:
+        'https://cdn.discordapp.com/attachments/1021065006953013339/1292123500235980800/image.png?ex=67029748&is=670145c8&hm=f0384cfce20c04c0453112fdf7ab8e2e7dffe48e83797618313167f78b0692f3&',
+      link: '/pdf/MangaHeaven.pdf'
     },
     {
       id: 3,

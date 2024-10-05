@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dmcPrimary: '#dc0000', // Primary red color
-        dmcSecondary: '#FFD700', // Gold color in hex
-        dmcBackground: '#1a1a1a', // Dark Gray background
+        dmcPrimary: '#dc0000',
+        dmcSecondary: '#FFD700',
+        dmcBackground: '#1a1a1a',
         'porsche-black': '#191919',
         'porsche-red': '#d5001c',
         'porsche-silver': '#e5e5e5',
