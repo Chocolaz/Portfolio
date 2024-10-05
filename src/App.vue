@@ -67,8 +67,7 @@ const portfolio = ref({
         'Spring Boot',
         'Docker'
       ],
-      image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290448206974423050/image.png?ex=66fc7f0b&is=66fb2d8b&hm=bb6a6db0c18dcc4cecdc1b46d85c9b2e51eacdc9253d657c4a863db6c72b10ea&=&format=webp&quality=lossless&width=592&height=655',
+      image: '/Portfolio/pic/kanban.png',
       link: 'https://github.com/Chocolaz/INT221-KW-3-KANBAN'
     },
     {
@@ -82,9 +81,8 @@ const portfolio = ref({
         'User Journey',
         'User-Centered Design'
       ],
-      image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1292123500235980800/image.png?ex=67029748&is=670145c8&hm=f0384cfce20c04c0453112fdf7ab8e2e7dffe48e83797618313167f78b0692f3&',
-      link: '/pdf/MangaHeaven.pdf'
+      image: '/Portfolio/pic/manga-heaven.png',
+      link: '/Portfolio/pdf/MangaHeaven.pdf'
     },
     {
       id: 3,
@@ -97,9 +95,8 @@ const portfolio = ref({
         'User Journey',
         'Business Analyst'
       ],
-      image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1290184487128272948/image.png?ex=66fb8970&is=66fa37f0&hm=64ae508b12ee197b6e8bd53b7fb2c6d4e0262ef28cf7c537056cb0c1928f7429&',
-      link: '/pdf/waste2wheel.pdf'
+      image: '/Portfolio/pic/Waste2Wheels.png',
+      link: '/Portfolio/pdf/waste2wheel.pdf'
     },
     {
       id: 4,
@@ -107,8 +104,7 @@ const portfolio = ref({
       description:
         'An interactive web application blending the traditional sounds of the classic piano with modern electronic piano features, focusing on sound handling in frontend development.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
-      image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290185452007063552/image.png?ex=66fb8a56&is=66fa38d6&hm=b1b0411574d503bba25678d757fc81bedd1afaf937d9f7a8a0d1f66034d56a8e&=&format=webp&quality=lossless&width=714&height=525',
+      image: '/Portfolio/pic/KoreanPiano.png',
       link: 'https://github.com/fluffyhugger/PROJECT1-SEC-2-DaiItsara'
     },
     {
@@ -117,8 +113,7 @@ const portfolio = ref({
       description:
         'CRUD web app for building custom computer specifications. Dynamic data fetching, responsive UI, and admin tools for product management, PC rankings, and article browsing.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
-      image:
-        'https://media.discordapp.net/attachments/1021065006953013339/1290240187259162634/image.png?ex=66fbbd50&is=66fa6bd0&hm=ea5c6b442fb2ad966d55943cfeafe285bcd0d93adb08f3adf127b0d0cfb0893a&=&format=webp&quality=lossless&width=745&height=655',
+      image: '/Portfolio/pic/SpecBuilder.png',
       link: 'https://github.com/fluffyhugger/PROJECT2-SEC-2-DaiItsara'
     },
     {
@@ -127,8 +122,7 @@ const portfolio = ref({
       description:
         'MP3 Player web app with responsive design. This app provides a user-friendly interface for playing MP3 files and enjoying music seamlessly across various devices.',
       technologies: ['Vue.js', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Git'],
-      image:
-        'https://cdn.discordapp.com/attachments/1021065006953013339/1290183474400985130/image.png?ex=66fb887e&is=66fa36fe&hm=49836efff2d7aee3dca5e8aca7b82e9b7dfb1899bf0d1d414a9e09f6381796a8&',
+      image: '/Portfolio/pic/Punktify.png',
       link: 'https://github.com/Chocolaz/Punktify'
     }
   ]
